@@ -9,7 +9,7 @@
 #include "am335x-boneblack-common.dtsi"
 
 / {
-	model = "TI AM335x BeagleBone Black-mGaik";
+	model = "TI AM335x BeagleBone Black-8-jul-2023-1";
 	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
 };
 

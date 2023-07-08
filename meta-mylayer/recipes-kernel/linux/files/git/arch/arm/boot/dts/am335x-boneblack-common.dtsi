@@ -88,7 +88,7 @@
 
 /*<mGaik>*/
 &ehrpwm1 {
-     pinctrl-names = "default";
+     pinctrl-names = "myPWM";
      pinctrl-0 = <&backlight_pwm_pins>;
      status = "okay";
 };
@@ -97,11 +97,11 @@
      #address-cells = <1>;
      #size-cells = <0>;
      status = "okay";
-     pinctrl-names = "default";
+     pinctrl-names = "mySPI1";
      pinctrl-0 = <&spi1_pins>;
      display@0{
            status = "okay";
-           compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+           compatible = "ilitek,ili9341";
            reg = <0>;
            spi-max-frequency = <32000000>;
            dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
@@ -109,6 +109,8 @@
            backlight = <&backlight_pwm>;  // lcd lite  P9.16 gpmc_a2.ehrpwm1b
            // rotation is optional
            rotation = <270>;
+           buswidth = <1>;
+           //debug = <3>;
      };
 };
 
