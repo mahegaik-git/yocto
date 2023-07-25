@@ -1,0 +1,28 @@
+From 30e6d8385389eabe66b4a9e1ac3056d79b20096a Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Mon, 3 Jul 2023 13:22:43 +0000
+Subject: [PATCH] my first patch
+
+---
+ userprog.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+ create mode 100644 userprog.c
+
+diff --git a/userprog.c b/userprog.c
+new file mode 100644
+index 0000000..98188d5
+--- /dev/null
++++ b/userprog.c
+@@ -0,0 +1,9 @@
++#include <stdio.h>
++
++int main()
++{
++	printf("Hello Cmake\n");
++	printf("Hello Cmake22\n");
++
++	return 0;
++}
+-- 
+2.25.1
+
