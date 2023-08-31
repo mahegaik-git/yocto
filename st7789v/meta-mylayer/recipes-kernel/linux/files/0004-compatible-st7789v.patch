@@ -1,0 +1,30 @@
+From 9506befc9879e7870a171d6df806865ed4c22b56 Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Wed, 30 Aug 2023 16:11:08 +0000
+Subject: [PATCH 4/6] compatible st7789v
+
+---
+ arch/arm/boot/dts/am335x-boneblack-common.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index e1483f0cddae..a30b12782531 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -111,10 +111,11 @@
+ 	    };
+     	display@0{
+ 	            status = "okay";
+-		    compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
++		    //compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
+                     //compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
++                    compatible = "sitronix,st7789v";
+ 		    reg = <0>;
+-		    spi-max-frequency = <8000000>;
++		    spi-max-frequency = <16000000>;
+ 		    dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
+ 		    //reset-gpios = <&gpio3 21 0>;   // lcd reset P9.25 gpio3[21]
+ 		    reset-gpios = <&gpio3 21 1>;   // lcd reset P9.25 gpio3[21]
+-- 
+2.25.1
+

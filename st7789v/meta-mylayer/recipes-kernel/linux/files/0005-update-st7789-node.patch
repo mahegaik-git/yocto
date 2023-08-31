@@ -1,0 +1,51 @@
+From 3bf2fb8685d05e9994cbffff620b77ef2d7623a3 Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Thu, 31 Aug 2023 00:59:24 +0000
+Subject: [PATCH 5/6] update st7789 node
+
+---
+ .../arm/boot/dts/am335x-boneblack-common.dtsi | 21 ++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index a30b12782531..020a0033ee1d 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -115,7 +115,9 @@
+                     //compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
+                     compatible = "sitronix,st7789v";
+ 		    reg = <0>;
+-		    spi-max-frequency = <16000000>;
++		    spi-max-frequency = <100000>;
++		    spi-cpol;
++                    spi-cpha;
+ 		    dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
+ 		    //reset-gpios = <&gpio3 21 0>;   // lcd reset P9.25 gpio3[21]
+ 		    reset-gpios = <&gpio3 21 1>;   // lcd reset P9.25 gpio3[21]
+@@ -130,6 +132,23 @@
+ 	   };
+ };
+ 
++//panel@0 {
++//        compatible = "sitronix,st7789v";
++//        reg = <0>;
++//        reset-gpios = <&pio 6 11 GPIO_ACTIVE_LOW>;
++//        backlight = <&pwm_bl>;
++//        spi-max-frequency = <100000>;
++//        spi-cpol;
++//        spi-cpha;
++
++//        port {
++//                panel_input: endpoint {
++//                        remote-endpoint = <&tcon0_out_panel>;
++//                };
++//        };
++//};
++
++
+ &i2c0 {
+ 	tda19988: tda19988@70 {
+ 		compatible = "nxp,tda998x";
+-- 
+2.25.1
+

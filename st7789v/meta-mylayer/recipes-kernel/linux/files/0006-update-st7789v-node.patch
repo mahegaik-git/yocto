@@ -1,0 +1,27 @@
+From 0b37c7915370789b74f249144825591896e46885 Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Thu, 31 Aug 2023 01:20:58 +0000
+Subject: [PATCH 6/6] update st7789v node
+
+---
+ arch/arm/boot/dts/am335x-boneblack-common.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index 020a0033ee1d..5c97eb82e87d 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -116,8 +116,8 @@
+                     compatible = "sitronix,st7789v";
+ 		    reg = <0>;
+ 		    spi-max-frequency = <100000>;
+-		    spi-cpol;
+-                    spi-cpha;
++		    //spi-cpol;
++                    //spi-cpha;
+ 		    dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
+ 		    //reset-gpios = <&gpio3 21 0>;   // lcd reset P9.25 gpio3[21]
+ 		    reset-gpios = <&gpio3 21 1>;   // lcd reset P9.25 gpio3[21]
+-- 
+2.25.1
+

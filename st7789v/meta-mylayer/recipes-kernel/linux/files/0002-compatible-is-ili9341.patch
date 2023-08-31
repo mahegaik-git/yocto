@@ -1,0 +1,28 @@
+From 9b360243fe27cfabadfa8ef45a089edbb30da4e2 Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Sun, 27 Aug 2023 00:51:59 +0000
+Subject: [PATCH 2/6] compatible is ili9341
+
+---
+ arch/arm/boot/dts/am335x-boneblack-common.dtsi | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index d4d91f1c2362..2e9ceed7a132 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -111,9 +111,8 @@
+ 	    };
+     	display@0{
+ 	            status = "okay";
+-		    //compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
+-                    compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
+-		    //compatible = "ilitek,ili9341"; //->no driver name ili seen if we do this
++		    compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
++                    //compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
+ 		    reg = <0>;
+ 		    spi-max-frequency = <16000000>;
+ 		    dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
+-- 
+2.25.1
+

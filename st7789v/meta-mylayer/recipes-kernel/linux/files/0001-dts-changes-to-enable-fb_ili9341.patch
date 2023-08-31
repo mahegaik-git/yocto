@@ -1,0 +1,72 @@
+From a8bb2afe7714f6d053d9d36589dca7c615ad4f1e Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Sat, 22 Jul 2023 16:24:27 +0000
+Subject: [PATCH] dts-changes-to-enable-fb_ili9341
+
+---
+ arch/arm/boot/dts/am335x-boneblack-common.dtsi | 18 ++++++------------
+ arch/arm/boot/dts/am335x-boneblack.dts         |  2 +-
+ 2 files changed, 7 insertions(+), 13 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index acb0568a1d82..676d50b9bb6d 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -103,8 +103,8 @@
+      	#size-cells = <0>;
+ 
+     	status = "okay";
+-	    pinctrl-names = "default";
+-	    pinctrl-0 = <&spi1_pins>;
++        pinctrl-names = "default";
++        pinctrl-0 = <&spi1_pins>;
+     	channel@0{
+ 	   	     status = "disabled";
+ 		     reg = <0>;
+@@ -112,26 +112,20 @@
+     	display@0{
+ 	            status = "okay";
+ 		    compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
+-		    //compatible = "ilitek,ili9341"; ->no driver name ili seen if we do this
++		    //compatible = "ilitek,ili9341"; //->no driver name ili seen if we do this
+ 		    reg = <0>;
+ 		    spi-max-frequency = <16000000>;
+ 		    dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
+-		    reset-gpios = <&gpio3 21 0>;   // lcd reset P9.25 gpio3[21]
+-		    //reset-gpios = <&gpio3 21 1>;   // lcd reset P9.25 gpio3[21]
++		    //reset-gpios = <&gpio3 21 0>;   // lcd reset P9.25 gpio3[21]
++		    reset-gpios = <&gpio3 21 1>;   // lcd reset P9.25 gpio3[21]
+      		    // backlight is optional
+ 	    	    // choose either pwm or gpio control
+-		    //backlight = <&backlight_gpio>; // lcd lite  P9.23 gpio1[17]
+-
+ 		    backlight = <&backlight_pwm>;    // lcd lite  P9.16 gpmc_a2.ehrpwm1b
+-
+ 		    // refer to https://elinux.org/Beagleboard:Cape_Expansion_Headers
+ 		    // rotation is optional
+ 		    rotation = <270>;
+-                    buswidth = <9>;
+-                    //bgr;
+-                    //fps = <50>;
++                    buswidth = <8>;
+                     //regwidth = <8>;
+-                    //This should get lots 
+                     //debug = <7>;
+ 	   };
+ };
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index 44f9ed6c284a..e49b8a7bc0fb 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -9,7 +9,7 @@
+ #include "am335x-boneblack-common.dtsi"
+ 
+ / {
+-	model = "TI AM335x BeagleBone Black-19July-2";
++	model = "TI AM335x BeagleBone Black-22July-3";
+ 	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+ };
+ 
+-- 
+2.25.1
+
