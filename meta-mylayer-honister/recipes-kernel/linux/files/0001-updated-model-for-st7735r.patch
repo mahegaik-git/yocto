@@ -1,0 +1,25 @@
+From c79acc97701d9753112e5a32c9bf0fb25ddd7668 Mon Sep 17 00:00:00 2001
+From: mahegaik <mahegaik@gmail.com>
+Date: Thu, 15 Feb 2024 06:05:32 +0000
+Subject: [PATCH] updated model for st7735r
+
+---
+ arch/arm/boot/dts/am335x-boneblack.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index e2ee8b8c07bc..b34924424b57 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -9,7 +9,7 @@
+ #include "am335x-boneblack-common.dtsi"
+ 
+ / {
+-	model = "TI AM335x BeagleBone Black";
++	model = "TI AM335x BeagleBone Black-For-ST3375";
+ 	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+ };
+ 
+-- 
+2.34.1
+

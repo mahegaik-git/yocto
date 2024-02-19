@@ -1,0 +1,40 @@
+From c3f596df7c73346ce0336f4f4b19f05ff5df46a0 Mon Sep 17 00:00:00 2001
+From: mahegaik <mahegaik@gmail.com>
+Date: Fri, 16 Feb 2024 14:34:12 +0000
+Subject: [PATCH] add to dts st7789v
+
+---
+ arch/arm/boot/dts/am335x-boneblack-common.dtsi | 3 ++-
+ arch/arm/boot/dts/am335x-boneblack.dts         | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index 49124581b4a2..f347228f38ec 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -166,7 +166,8 @@ channel@0{
+ 	    };
+     	display@0{
+ 	            status = "okay";
+-                    compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
++                    //compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
++                    compatible = "waveshare,ws-2inch-lcd", "sitronix,st7789v";
+ 		    //compatible = "ilitek,ili9341"; //->no driver name ili seen if we do this
+ 		    reg = <0>;
+ 		    spi-max-frequency = <16000000>;
+diff --git a/arch/arm/boot/dts/am335x-boneblack.dts b/arch/arm/boot/dts/am335x-boneblack.dts
+index b34924424b57..6cc3aeca5e6c 100644
+--- a/arch/arm/boot/dts/am335x-boneblack.dts
++++ b/arch/arm/boot/dts/am335x-boneblack.dts
+@@ -9,7 +9,7 @@
+ #include "am335x-boneblack-common.dtsi"
+ 
+ / {
+-	model = "TI AM335x BeagleBone Black-For-ST3375";
++	model = "TI AM335x BeagleBone Black-For-ST7789v";
+ 	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
+ };
+ 
+-- 
+2.34.1
+
