@@ -1,0 +1,1 @@
+savedcmd_/home/mahesh/projects/linux-driver/dev_nr/dev_nr.mod := printf '%s\n'   dev_nr.o | awk '!x[$$0]++ { print("/home/mahesh/projects/linux-driver/dev_nr/"$$0) }' > /home/mahesh/projects/linux-driver/dev_nr/dev_nr.mod
