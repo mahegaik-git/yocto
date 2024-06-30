@@ -1,0 +1,1 @@
+savedcmd_/home/mahesh/projects/linux-driver/dev_nr/Module.symvers :=  scripts/mod/modpost -m -a      -o /home/mahesh/projects/linux-driver/dev_nr/Module.symvers -T /home/mahesh/projects/linux-driver/dev_nr/modules.order -i Module.symvers -e 

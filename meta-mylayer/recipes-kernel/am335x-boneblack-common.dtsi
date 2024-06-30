@@ -112,10 +112,14 @@
     	display@0{
 	            status = "okay";
 		    //compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
-                    compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
-		    //compatible = "ilitek,ili9341"; //->no driver name ili seen if we do this
+                    //compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
+                    compatible = "waveshare,ws-2inch-lcd", "sitronix,st7789v";
+                    //compatible = "sitronix,st7789v";
 		    reg = <0>;
-		    spi-max-frequency = <16000000>;
+		    //spi-max-frequency = <100000>;
+		    spi-max-frequency = <32000000>;
+		    spi-cpol;
+                    spi-cpha;
 		    dc-gpios    = <&gpio3 19 0>;   // lcd dc    P9.27 gpio3[19]
 		    //reset-gpios = <&gpio3 21 0>;   // lcd reset P9.25 gpio3[21]
 		    reset-gpios = <&gpio3 21 1>;   // lcd reset P9.25 gpio3[21]
@@ -129,6 +133,23 @@
                     //debug = <7>;
 	   };
 };
+
+//panel@0 {
+//        compatible = "sitronix,st7789v";
+//        reg = <0>;
+//        reset-gpios = <&pio 6 11 GPIO_ACTIVE_LOW>;
+//        backlight = <&pwm_bl>;
+//        spi-max-frequency = <100000>;
+//        spi-cpol;
+//        spi-cpha;
+
+//        port {
+//                panel_input: endpoint {
+//                        remote-endpoint = <&tcon0_out_panel>;
+//                };
+//        };
+//};
+
 
 &i2c0 {
 	tda19988: tda19988@70 {

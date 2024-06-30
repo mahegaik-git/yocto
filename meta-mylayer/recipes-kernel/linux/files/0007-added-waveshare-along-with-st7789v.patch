@@ -1,0 +1,26 @@
+From a873599d4c5d43c960d04ab8ac0d4de372c736d7 Mon Sep 17 00:00:00 2001
+From: mGaik <mahegaik@gmail.com>
+Date: Thu, 31 Aug 2023 01:57:55 +0000
+Subject: [PATCH 7/8] added waveshare along with st7789v
+
+---
+ arch/arm/boot/dts/am335x-boneblack-common.dtsi | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/am335x-boneblack-common.dtsi b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+index 020a0033ee1d..1f197b0ce8e9 100644
+--- a/arch/arm/boot/dts/am335x-boneblack-common.dtsi
++++ b/arch/arm/boot/dts/am335x-boneblack-common.dtsi
+@@ -113,7 +113,8 @@
+ 	            status = "okay";
+ 		    //compatible = "adafruit,yx240qv29", "ilitek,ili9341"; //this makes ili9341 visible once we do lsmod
+                     //compatible = "jianda,jd-t18003-t01", "sitronix,st7735r";
+-                    compatible = "sitronix,st7789v";
++                    compatible = "waveshare,ws-2inch-lcd", "sitronix,st7789v";
++                    //compatible = "sitronix,st7789v";
+ 		    reg = <0>;
+ 		    spi-max-frequency = <100000>;
+ 		    spi-cpol;
+-- 
+2.25.1
+
